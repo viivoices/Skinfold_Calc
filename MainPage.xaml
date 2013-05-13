@@ -1,0 +1,140 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="ApplicationLifecycle.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    xmlns:local="clr-namespace:ApplicationLifecycle"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot contains the root grid where all other page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="{x:Null}">
+        <Grid.Resources>
+            <local:DateTimeToStringConverter x:Key="dateTimeToStringConverter"/>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <!--ContentPanel - place additional content here-->
+        <StackPanel Grid.Row="1" Margin="10,10,2,641" Name="TitlePanel">
+            <TextBlock FontFamily="Times New Roman" FontSize="24" FontStyle="Italic" Foreground="#FF00FF24" Name="ApplicationTitle" Style="{StaticResource PhoneTextNormalStyle}" Text="Skinfold" />
+            <TextBlock FontFamily="Segoe WP SemiLight" FontSize="72" Margin="9,-7,0,0" Name="PageTitle" Style="{StaticResource PhoneTextTitle1Style}" Text="7 Site" />
+        </StackPanel>
+        <Grid Grid.Row="1" HorizontalAlignment="Left" Margin="10,155,0,7" Name="ContentPanel" DataContext="{Binding}">
+            <Button BorderBrush="#FF00FF52" Click="button1_Click_1" Content="Calculate" Foreground="#FF22EA18" Height="72" HorizontalAlignment="Left" Margin="-6,512,0,0" Name="button1" VerticalAlignment="Top" Width="170" />
+            <TextBox FontSize="24" Height="65" HorizontalAlignment="Left" Margin="128,236,0,0" Name="boxChest" Text="" VerticalAlignment="Top" Width="108">
+                <TextBox.InputScope>
+                    <InputScope>
+                        <InputScopeName NameValue="Digits" />
+                    </InputScope>
+                </TextBox.InputScope>
+            </TextBox>
+            <TextBox Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF68F268" Height="72" HorizontalAlignment="Right" IsEnabled="True" IsHitTestVisible="False" Margin="0,0,80,261" Name="boxMale" Opacity="0" Text="{Binding sevensite, Mode=TwoWay}" TextAlignment="Right" VerticalAlignment="Bottom" Width="120" />
+            <TextBox FontSize="24" Height="65" HorizontalAlignment="Left" Margin="128,0,0,359" Name="boxSubscapular" Text="" VerticalAlignment="Bottom" Width="108">
+                <TextBox.InputScope>
+                    <InputScope>
+                        <InputScopeName NameValue="Digits" />
+                    </InputScope>
+                </TextBox.InputScope>
+            </TextBox>
+            <TextBox FontSize="24" HorizontalAlignment="Right" Margin="0,127,220,414" Name="boxTriceps" Text="" Width="108">
+                     <TextBox.InputScope>
+                <InputScope>
+                    <InputScopeName NameValue="Digits" />
+                </InputScope>
+                </TextBox.InputScope>
+            </TextBox>    
+                <TextBox FontSize="24" Height="65" HorizontalAlignment="Left" Margin="128,0,0,252" Name="boxAbdomen" VerticalAlignment="Bottom" Width="108">
+                    <TextBox.InputScope>
+                        <InputScope>
+                            <InputScopeName NameValue="Digits" />
+                        </InputScope>
+                    </TextBox.InputScope>
+                </TextBox>
+                
+                <TextBox FontSize="24" Height="65" HorizontalAlignment="Left" Margin="128,394,0,0" Name="boxThigh" VerticalAlignment="Top" Width="108">
+                <TextBox.InputScope>
+                    <InputScope>
+                        <InputScopeName NameValue="Digits" />
+                    </InputScope>
+                </TextBox.InputScope>
+            </TextBox>
+            <TextBox FontSize="24" HorizontalAlignment="Left" Margin="128,342,0,200" Name="boxSupraillium" Text="" Width="108">
+                <TextBox.InputScope>
+                    <InputScope>
+                        <InputScopeName NameValue="Digits" />
+                    </InputScope>
+                </TextBox.InputScope>
+            </TextBox>
+            <TextBox FontSize="24" Height="65" HorizontalAlignment="Left" Margin="128,447,0,0" Name="boxAxilla" VerticalAlignment="Top" Width="108">
+                <TextBox.InputScope>
+                    <InputScope>
+                        <InputScopeName NameValue="Digits" />
+                    </InputScope>
+                </TextBox.InputScope>
+            </TextBox>
+            <TextBlock FontSize="24" Foreground="#FF00FF24" Height="38" HorizontalAlignment="Left" Margin="0,146,0,0" Name="TextTriceps" Text="Triceps" VerticalAlignment="Top" Width="82" />
+            <TextBlock FontSize="24" Foreground="#FF00FF24" Height="38" HorizontalAlignment="Left" Margin="0,412,0,0" Name="textBlock2" Text="Thigh" VerticalAlignment="Top" Width="82" />
+            <TextBlock FontSize="24" Foreground="#FF00FF24" Height="38" HorizontalAlignment="Left" Margin="0,466,0,0" Name="textBlock3" Text="Axilla" VerticalAlignment="Top" Width="82" />
+            <TextBlock FontSize="24" Foreground="#FF00FF24" Height="38" HorizontalAlignment="Left" Margin="0,359,0,0" Name="textBlock4" Text="Supraillium" VerticalAlignment="Top" Width="132" />
+            <TextBlock FontSize="24" Foreground="#FF00FF24" Height="38" HorizontalAlignment="Left" Margin="0,307,0,0" Name="textBlock5" Text="Abdomen" VerticalAlignment="Top" Width="110" />
+            <TextBlock FontSize="24" Foreground="#FF00FF24" Height="38" HorizontalAlignment="Left" Margin="0,253,0,0" Name="textBlock6" Text="Chest" VerticalAlignment="Top" Width="82" />
+            <TextBlock FontSize="24" Foreground="#FF00FF24" Height="38" HorizontalAlignment="Left" Margin="0,197,0,0" Name="textBlock7" Text="Subscapular" VerticalAlignment="Top" Width="132" />
+            <TextBox FontSize="24" Height="69" HorizontalAlignment="Left" Margin="49,0,0,546" Name="boxAge" Text="{Binding Age, Mode=TwoWay}" VerticalAlignment="Bottom" Width="71" TextChanged="boxAge_TextChanged">
+                <TextBox.InputScope>
+                    <InputScope>
+                        <InputScopeName NameValue="Digits" />
+                    </InputScope>
+                </TextBox.InputScope>
+            </TextBox>
+            <TextBlock FontSize="24" Foreground="#FF00FF24" Height="49" HorizontalAlignment="Left" Margin="10,9,0,0" Name="textAge" Text="Age:" VerticalAlignment="Top" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="367,299,0,0" Name="textBFMale" Opacity="0" Text="%BF " VerticalAlignment="Top" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="374,513,0,0" Name="textBFFemale" Opacity="0" Text="%BF" VerticalAlignment="Top" />
+            <TextBox Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF5AD25A" Height="75" HorizontalAlignment="Right" IsHitTestVisible="False" Margin="0,0,80,39" Name="boxFemale" Opacity="0" Text="{Binding sevensite, Mode=TwoWay}" TextAlignment="Right" VerticalAlignment="Bottom" Width="117" />
+            <TextBox Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF68F268" IsHitTestVisible="False" Margin="256,163,80,0" Name="boxBodyFat" Opacity="0" TextAlignment="Right" VerticalAlignment="Top" />
+            <TextBox Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF68F268" Height="73" HorizontalAlignment="Right" IsHitTestVisible="False" Margin="0,0,80,315" Name="boxLBMMale" Opacity="0" Text="" TextAlignment="Right" VerticalAlignment="Bottom" Width="120" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="367,190,0,0" Name="textFatlbsMale" Opacity="0" Text="Fat in lbs" VerticalAlignment="Top" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="370,243,0,0" Name="textLBMMale" Opacity="0" Text="LBM" VerticalAlignment="Top" />
+            <TextBox FontSize="24" Height="72" HorizontalAlignment="Right" Margin="0,-8,81,0" Name="boxWeight" Text="{Binding Weight, Mode=TwoWay}" VerticalAlignment="Top" Width="123">
+                <TextBox.InputScope>
+                    <InputScope>
+                        <InputScopeName NameValue="Digits" />
+                    </InputScope>
+                </TextBox.InputScope>
+            </TextBox>
+            <TextBlock FontSize="24" Height="30" HorizontalAlignment="Left" Margin="246,133,0,0" Name="textMale" Opacity="0" Text="Male" VerticalAlignment="Top" />
+            <TextBlock FontSize="24" Foreground="#FF00FF24" Height="49" HorizontalAlignment="Left" Margin="178,9,0,0" Name="textBlock11" Text="Weight:" VerticalAlignment="Top" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="374,463,0,0" Name="textLBMFemale" Opacity="0" Text="LBM" VerticalAlignment="Top" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="374,407,0,0" Name="textFatlbsFemale" Opacity="0" Text="Fat in lbs" VerticalAlignment="Top" />
+            <TextBox Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF5AD25A" Height="71" HorizontalAlignment="Left" Margin="251,435,0,0" Name="boxLBMFemale" Opacity="0" Text="" TextAlignment="Right" VerticalAlignment="Top" Width="125" />
+            <TextBox Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF5AD25A" HorizontalAlignment="Left" Margin="256,380,0,154" Name="boxFatLbsFemale" Opacity="0" Text="" TextAlignment="Right" VerticalContentAlignment="Center" Width="120" />
+            <TextBlock FontSize="24" Height="30" HorizontalAlignment="Left" Margin="246,362,0,0" Name="textFemale" Opacity="0" Text="Female" VerticalAlignment="Top" />
+            <TextBlock FontSize="24" Foreground="Red" Height="30" HorizontalAlignment="Left" Margin="322,133,0,0" Name="textObeaseM" Opacity="0" Text="Obease" VerticalAlignment="Top" />
+            <TextBlock FontSize="24" Foreground="#FFF2FF00" Height="30" HorizontalAlignment="Left" Margin="322,133,0,0" Name="textOverweightM" Opacity="0" Text="Acceptable" VerticalAlignment="Top" />
+            <TextBlock FontSize="24" Foreground="#FF6AFF00" Height="30" HorizontalAlignment="Left" Margin="322,133,0,0" Name="textFitM" Opacity="0" Text="Fit" VerticalAlignment="Top" Visibility="Visible" />
+            <TextBlock FontSize="24" Foreground="#FF00EA5B" Height="30" HorizontalAlignment="Left" Margin="322,133,0,0" Name="textAthleteM" Opacity="0" Text="Athlete" VerticalAlignment="Top" />
+            <TextBlock FontSize="24" Foreground="Red" Height="30" HorizontalAlignment="Left" Margin="322,131,0,0" Name="textEssintialFat" Opacity="0" Text="Essential Fat" VerticalAlignment="Top" />
+            <TextBlock FontStyle="Italic" FontWeight="SemiBold" Foreground="#FF00FF24" Height="30" HorizontalAlignment="Left" Margin="-2,107,0,0" Name="textBlock14" Text="7 Sites (mm)" VerticalAlignment="Top" FontSize="24" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="368,28,0,0" Name="textBlock15" Text="lbs" VerticalAlignment="Top" />
+            <TextBlock FontSize="24" Foreground="#FFEAEA0E" Height="30" HorizontalAlignment="Left" Margin="335,362,0,0" Name="textAcceptableW" Opacity="0" Text="Acceptable" VerticalAlignment="Top" />
+            <TextBlock FontSize="24" Foreground="Red" Height="30" HorizontalAlignment="Left" Margin="335,362,0,0" Name="textObeaseW" Opacity="0" Text="Obease" VerticalAlignment="Top" />
+            <TextBlock FontSize="24" Foreground="#FF00E821" Height="30" HorizontalAlignment="Left" Margin="335,362,0,0" Name="textFitW" Opacity="0" Text="Fit" VerticalAlignment="Top" />
+            <TextBlock FontSize="24" Foreground="#FF15AC00" Height="30" HorizontalAlignment="Left" Margin="335,362,0,0" Name="textAthleteW" Opacity="0" Text="Athlete" VerticalAlignment="Top" />
+            <TextBlock FontSize="24" Foreground="Red" Height="30" HorizontalAlignment="Left" Margin="335,362,0,0" Name="textEssintialFatW" Opacity="0" Text="Essintial Fat" VerticalAlignment="Top" />
+            <CheckBox Background="#FFC4C4C4" BorderBrush="#BF00F704" Checked="checkBox1_Checked" Content="Male" Foreground="#FF00FF24" Height="73" HorizontalAlignment="Left" IsChecked="False" Margin="-6,48,0,0" Name="checkBox1" VerticalAlignment="Top" Width="126" />
+            <CheckBox Background="#FFC4C4C4" BorderBrush="#BFFFFFFF" Checked="checkBox2_Checked" Content="Female" Foreground="#FF00FF24" Height="72" HorizontalAlignment="Right" Margin="0,49,182,0" Name="checkBox2" VerticalAlignment="Top" Width="141" />
+            <Button BorderBrush="#FF00FF52" Click="button2_Click" Content="Calculate" Foreground="#FF22EA18" Height="72" HorizontalAlignment="Left" Margin="-6,512,0,0" Name="button2" VerticalAlignment="Top" Width="170" />
+            <Button Background="#00E81F1F" BorderBrush="Red" Click="buttonClear_Click" Content="Clear" FontWeight="Thin" Foreground="#FFE60000" Height="72" HorizontalAlignment="Right" Margin="0,512,184,0" Name="buttonClear" VerticalAlignment="Top" Width="112" />
+        </Grid>
+    </Grid>
+</phone:PhoneApplicationPage>
